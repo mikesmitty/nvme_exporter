@@ -1,6 +1,8 @@
 # nvme_exporter
 Prometheus exporter for nvme smart-log metrics
 
+[Ansible role](https://github.com/cosandr/ansible-role-nvme_exporter) for setting up exporter.
+
 ## Building and running
 
 ### Build
