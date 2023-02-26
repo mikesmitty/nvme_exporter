@@ -105,11 +105,11 @@ nvme_power_on_hours{device="/dev/nvme2n1"} 16342
 nvme_spare_thresh{device="/dev/nvme0n1"} 10
 nvme_spare_thresh{device="/dev/nvme1n1"} 10
 nvme_spare_thresh{device="/dev/nvme2n1"} 5
-# HELP nvme_temperature Temperature in degrees fahrenheit
+# HELP nvme_temperature Temperature in degrees celius
 # TYPE nvme_temperature gauge
-nvme_temperature{device="/dev/nvme0n1"} 103.73000000000005
-nvme_temperature{device="/dev/nvme1n1"} 105.53000000000004
-nvme_temperature{device="/dev/nvme2n1"} 91.13000000000004
+nvme_temperature{device="/dev/nvme0n1"} 39.85
+nvme_temperature{device="/dev/nvme1n1"} 39.7
+nvme_temperature{device="/dev/nvme2n1"} 32.8
 # HELP nvme_thm_temp1_trans_count Number of times controller transitioned to lower power
 # TYPE nvme_thm_temp1_trans_count counter
 nvme_thm_temp1_trans_count{device="/dev/nvme0n1"} 0

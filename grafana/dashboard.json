@@ -695,7 +695,7 @@
       "dashes": false,
       "datasource": "${DS_PROMETHEUS}",
       "decimals": null,
-      "description": "Temperature in degrees Fahrenheit",
+      "description": "Temperature in degrees Celsius",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -765,7 +765,7 @@
         {
           "$$hashKey": "object:79",
           "decimals": 0,
-          "format": "fahrenheit",
+          "format": "celsius",
           "label": null,
           "logBase": 1,
           "max": null,
