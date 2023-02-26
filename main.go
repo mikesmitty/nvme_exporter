@@ -290,6 +290,19 @@ func main() {
 		log.Fatalf("Cannot find nvme command in path: %s\n", err)
 	}
 	prometheus.MustRegister(newNvmeCollector())
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte(`
+		<html>
+			<head><title>NVMe Exporter</title></head>
+			<body>
+			<h1>NVMe Exporter</h1>
+			<p><a href='/metrics'>Metrics</a></p>
+			<h2>More information:</h2>
+			<p><a href="https://github.com/cosandr/nvme_exporter">github.com/cosandr/nvme_exporter</a></p>
+			</body>
+		</html>
+			`))
+	})
 	http.Handle("/metrics", promhttp.Handler())
 
 	log.Fatal(http.ListenAndServe(*port, nil))
