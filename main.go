@@ -274,7 +274,7 @@ func (c *nvmeCollector) Collect(ch chan<- prometheus.Metric) {
 }
 
 func main() {
-	port := flag.String("port", "9998", "port to listen on")
+	port := flag.String("web.listen-address", ":9998", "Address on which to expose metrics")
 	flag.Parse()
 	// check user
 	currentUser, err := user.Current()
@@ -291,5 +291,6 @@ func main() {
 	}
 	prometheus.MustRegister(newNvmeCollector())
 	http.Handle("/metrics", promhttp.Handler())
-	log.Fatal(http.ListenAndServe(":"+*port, nil))
+
+	log.Fatal(http.ListenAndServe(*port, nil))
 }
