@@ -15,5 +15,5 @@ jobs:
           release-type: go
           extra-files: |
             - type: yaml
-              path: manifests/daemonset.yaml
+              path: manifests/kustomization.yaml
               jsonpath: "$.images[0].newTag"
