@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.3](https://github.com/mikesmitty/nvme_exporter/compare/v1.1.2...v1.1.3) (2023-10-21)
+
+
+### Bug Fixes
+
+* add relabeling for instance to node name ([#5](https://github.com/mikesmitty/nvme_exporter/issues/5)) ([50c23c2](https://github.com/mikesmitty/nvme_exporter/commit/50c23c2423cea26a1f890d168f0694fafaf5fdbc))
+* update grafana dashboard to be compatible with grafana 11+ ([#7](https://github.com/mikesmitty/nvme_exporter/issues/7)) ([2a905e4](https://github.com/mikesmitty/nvme_exporter/commit/2a905e4a731bef5d5bc834f3f82e76c83f330eb5))
+
 ## [1.1.2](https://github.com/mikesmitty/nvme_exporter/compare/v1.1.1...v1.1.2) (2023-10-21)
 
 
