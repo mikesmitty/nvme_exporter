@@ -10,4 +10,4 @@ images:
 resources:
 - daemonset.yaml
 - service.yaml
-- service-monitor.yaml
+- servicemonitor.yaml
