@@ -3,7 +3,9 @@ kind: Kustomization
 
 images:
 - name: ghcr.io/mikesmitty/nvme_exporter
+  # x-release-please-start-version
   newTag: v1.1.1
+  # x-release-please-end
 
 resources:
 - daemonset.yaml
