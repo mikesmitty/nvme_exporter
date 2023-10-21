@@ -1,8 +1,9 @@
-FROM golang:1.16
-MAINTAINER Frank R <12985912+fritchie@users.noreply.github.com>
+FROM golang:1.21.3-bookworm
 
-RUN apt-get update
-RUN apt-get -y install nvme-cli
+RUN apt-get update && \
+    apt-get -y upgrade
+RUN apt-get -y install nvme-cli && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /go/src/nvme_exporter
 COPY . .
