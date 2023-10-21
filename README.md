@@ -148,4 +148,4 @@ nvme_warning_temp_time{device="/dev/nvme2n1"} 2
 
 A sample Grafana dashboard is available:
 
-[https://grafana.com/grafana/dashboards/14706](https://grafana.com/grafana/dashboards/14706)
+[https://grafana.com/grafana/dashboards/19825-nvme-exporter/](https://grafana.com/grafana/dashboards/19825-nvme-exporter/)
