@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/mikesmitty/nvme_exporter/compare/v1.1.1...v1.1.2) (2023-10-21)
+
+
+### Bug Fixes
+
+* auto-update image version in manifests ([ad6cfa1](https://github.com/mikesmitty/nvme_exporter/commit/ad6cfa19fbda43c79d950113e1ffa9c5545794db))
+
 ## [1.1.1](https://github.com/mikesmitty/nvme_exporter/compare/v1.1.0...v1.1.1) (2023-10-21)
 
 
