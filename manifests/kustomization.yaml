@@ -1,6 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+images:
+- name: ghcr.io/mikesmitty/nvme_exporter
+  newTag: v1.1.1
+
 resources:
 - daemonset.yaml
 - service.yaml

@@ -20,7 +20,7 @@ spec:
         effect: NoSchedule
       containers:
       - name: nvme-exporter
-        image: mikesmitty/nvme_exporter:latest
+        image: ghcr.io/mikesmitty/nvme_exporter:latest
         # nvme-cli requires pod to be privileged
         securityContext:
           privileged: true
