@@ -11,3 +11,8 @@ spec:
   endpoints:
   - port: metrics
     path: /metrics
+    relabelings:
+    - action: replace
+      sourceLabels:
+      - __meta_kubernetes_pod_node_name
+      targetLabel: instance
