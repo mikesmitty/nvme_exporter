@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/mikesmitty/nvme_exporter/compare/v1.1.0...v1.1.1) (2023-10-21)
+
+
+### Bug Fixes
+
+* move kustomize to manifests directory ([ddebfb9](https://github.com/mikesmitty/nvme_exporter/commit/ddebfb9ac7eaaf4cb13b8603e9c6a8d2eba621fc))
+
 ## 1.1.0 (2023-10-21)
 
 
