@@ -3,5 +3,6 @@
   "extends": [
     "local>mikesmitty/renovate-config",
     "local>mikesmitty/renovate-config:docker-golang"
-  ]
+  ],
+  "includeForks": true
 }
