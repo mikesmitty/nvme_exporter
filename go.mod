@@ -1,6 +1,6 @@
 module nvme_exporter
 
-go 1.21
+go 1.21.4
 
 require (
 	github.com/prometheus/client_golang v1.14.0
