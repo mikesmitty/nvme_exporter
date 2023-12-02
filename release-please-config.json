@@ -1,0 +1,12 @@
+{
+    "packages": {
+        ".": {
+            "extra-files": [
+                "manifests/kustomization.yaml"
+            ],
+            "include-component-in-tag": false,
+            "package-name": "github.com/mikesmitty/nvme_exporter",
+            "release-type": "go"
+        }
+    }
+}
