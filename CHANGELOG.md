@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.5](https://github.com/mikesmitty/nvme_exporter/compare/v1.1.4...v1.1.5) (2023-12-16)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency go to v1.21.5 ([#16](https://github.com/mikesmitty/nvme_exporter/issues/16)) ([94b5c73](https://github.com/mikesmitty/nvme_exporter/commit/94b5c73200ba3435c3650449ae2545310cd29cc0))
+* **deps:** Update golang Docker tag to v1.21.5 ([#17](https://github.com/mikesmitty/nvme_exporter/issues/17)) ([d4e1508](https://github.com/mikesmitty/nvme_exporter/commit/d4e15084b3598aa8d29f2c9827a451d6c2bee83c))
+
 ## [1.1.4](https://github.com/mikesmitty/nvme_exporter/compare/v1.1.3...v1.1.4) (2023-11-25)
 
 
