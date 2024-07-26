@@ -1,16 +1,17 @@
-FROM golang:1.22.3-bookworm
+FROM golang:alpine AS build
 
-RUN apt-get update && \
-    apt-get -y upgrade
-RUN apt-get -y install nvme-cli && \
-    rm -rf /var/lib/apt/lists/*
+WORKDIR /go/build
+COPY go.mod go.sum .
+RUN go mod download -x
+COPY *.go .
+RUN go build -trimpath -o nvme-exporter
 
-WORKDIR /go/src/nvme_exporter
-COPY . .
+# ~~~~~~~~~~~~~~
 
-RUN go get -d -v ./...
-RUN go install -v ./...
+FROM alpine:3.20
+
+RUN apk add --no-cache nvme-cli
+COPY --from=build /go/build/nvme-exporter /usr/bin/nvme-exporter
 
 EXPOSE 9998
-
-CMD [ "nvme_exporter" ]
+ENTRYPOINT ["/usr/bin/nvme-exporter"]
