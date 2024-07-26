@@ -26,6 +26,7 @@ Running the exporter requires the nvme-cli package to be installed on the host.
 | Name | Description |
 |----|-------------------------------------------------|
 web.listen-address | Listen address Type: String. Default: :9998 |
+web.config.file | Web config file Type: String: Default: none |
 
 ### Sample Output
 
