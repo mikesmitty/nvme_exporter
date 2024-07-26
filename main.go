@@ -9,8 +9,10 @@ import (
 	"os/exec"
 	"os/user"
 
+	kitlog "github.com/go-kit/log"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
+	"github.com/prometheus/exporter-toolkit/web"
 	"github.com/tidwall/gjson"
 )
 
@@ -274,8 +276,10 @@ func (c *nvmeCollector) Collect(ch chan<- prometheus.Metric) {
 }
 
 func main() {
-	port := flag.String("web.listen-address", ":9998", "Address on which to expose metrics")
+	listenAddr := flag.String("web.listen-address", ":9998", "Address on which to expose metrics")
+	webConfigFile := flag.String("web.config.file", "", "Path to web config file")
 	flag.Parse()
+
 	// check user
 	currentUser, err := user.Current()
 	if err != nil {
@@ -284,13 +288,16 @@ func main() {
 	if currentUser.Username != "root" {
 		log.Fatalln("Error: you must be root to use nvme-cli")
 	}
+
 	// check for nvme-cli executable
 	_, err = exec.LookPath("nvme")
 	if err != nil {
 		log.Fatalf("Cannot find nvme command in path: %s\n", err)
 	}
+
 	prometheus.MustRegister(newNvmeCollector())
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	handler := http.NewServeMux()
+	handler.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte(`
 		<html>
 			<head><title>NVMe Exporter</title></head>
@@ -303,7 +310,13 @@ func main() {
 		</html>
 			`))
 	})
-	http.Handle("/metrics", promhttp.Handler())
+	handler.Handle("/metrics", promhttp.Handler())
 
-	log.Fatal(http.ListenAndServe(*port, nil))
+	server := http.Server{Handler: handler}
+	flags := web.FlagConfig{
+		WebListenAddresses: &[]string{*listenAddr},
+		WebConfigFile:      webConfigFile,
+	}
+	logger := kitlog.NewLogfmtLogger(log.Writer())
+	log.Fatal(web.ListenAndServe(&server, &flags, logger))
 }
